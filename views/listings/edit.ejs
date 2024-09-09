@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+  <div class="col-8 offset-2">
+
+    <h3 class="bold-text">Edit your Listing</h3>
+
+    <br>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" 
+      novalidate autocomplete="on" class="needs-validation"
+      enctype= "multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label"><b>Title</b></label>
+        <input id="title" name="listing[title]" placeholder="enter title" type="text" 
+        class="form-control" required value="<%= listing.title %>" />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label"><b>Description</b></label>
+        <textarea id="description" name="listing[description]" class="form-control" 
+        required><%= listing.description %></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label"><b>Upload New Image</b></label>
+        <input id="image" name="listing[image]" placeholder="enter image URL/Link"
+         type="file"
+         class="form-control"
+         />
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label"><b>Price</b></label>
+        <input id="price" name="listing[price]" placeholder="enter price" 
+        type="number" class="form-control " required value="<%= listing.price %>" 
+    
+      />
+      </div>
+
+      <div class="mb-3">
+        <label for="country" class="form-label"><b>Country</b></label>
+        <input id="country" name="listing[country]" placeholder="enter country" type="text" 
+        class="form-control" required value="<%= listing.country %>" />
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label"><b>Location</b></label>
+        <input id="location" name="listing[location]" placeholder="enter location" type="text" 
+        class="form-control" required value="<%= listing.location %>" />
+      </div>
+    
+      <button class="btn btn-dark btn-lg edit-btn">Edit</button>
+      <br></br>
+    </form>
+  </div>
+</div>
+
